@@ -1,0 +1,32 @@
+.container {
+    margin: 1rem 1rem 0 1rem;
+
+    .status {
+        display: flex;
+        margin-top: 1rem;
+        div:first-child {
+            margin-right: 3rem;
+        }
+        div:last-child {
+            margin-left: 3rem;
+        }
+        div label {
+            display: block;
+        }
+        input {
+            display: inline-block;
+            margin-left: 2rem;
+        }
+        .pme {
+            margin-left: 1rem;
+        }
+    }
+
+    .select {
+        margin: 1.3rem 0 1rem 0;
+    }
+
+    .row {
+        margin-top: 1.5rem;
+    }
+}

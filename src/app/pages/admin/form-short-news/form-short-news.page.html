@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="short-news"> Good</ion-back-button>
+      </ion-buttons>
+    <ion-title>form-short-news</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h3>Enregistrer une Easy News</h3>
+
+  <form [formGroup]="newsForm" (ngSubmit)="onSubmitForm()">
+    <ion-list>
+
+      <!-- link -->
+      <ion-item>
+        <ion-label position="floating">Lien</ion-label>
+        <ion-input type="url" required formControlName="link"></ion-input>
+      </ion-item>
+
+      <!-- category -->
+      <ion-item>
+        <ion-label position="floating">Catégorie</ion-label>
+        <ion-select required formControlName="category">
+          <ion-select-option value="education">Education</ion-select-option>
+          <ion-select-option value="politic">Politique</ion-select-option>
+          <ion-select-option value="health">Santé</ion-select-option>
+          <ion-select-option value="sport">Sport</ion-select-option>
+          <ion-select-option value="itech">Technologie</ion-select-option>
+          <ion-select-option value="music">Musique</ion-select-option>
+          <ion-select-option value="cinema">Cinéma</ion-select-option>
+          <ion-select-option value="inter">International</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Title -->
+      <ion-item>
+        <ion-label position="floating">Titre</ion-label>
+        <ion-input type="text" required formControlName="title"></ion-input>
+      </ion-item>
+
+      <!-- Text -->
+      <ion-item>
+        <ion-label position="floating">Texte</ion-label>
+        <ion-textarea required formControlName="text"></ion-textarea>
+      </ion-item>
+
+      <!-- Image -->
+      <ion-item>
+        <ion-button>
+            <ion-icon lazy="true" slot="start" name="image-outline"></ion-icon>
+            <ion-label slot="end">Upload image</ion-label>
+            <ion-input type="file" (change)="detectFiles($event)" accept="image/png, image/jpg" required formControlName="image"></ion-input>
+        </ion-button>
+        <p *ngIf="fileUploaded" style="color: #1a751a;">Fichier chargé !</p>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" [disabled]="newsForm.invalid || fileIsUploading" expand="block" color="success">Enregister !</ion-button>
+      </ion-col>
+    </ion-row>
+      
+  </form>
+  
+</ion-content>

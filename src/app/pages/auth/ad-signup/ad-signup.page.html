@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="ad-portal"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Inscription</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <div class="label">
+            <p>Incrivez-vous et publiez vos publicités</p>
+        </div>
+        <div class="form">
+            <form [formGroup]="adForm" (ngSubmit)="onSubmit()">
+                <ion-list>
+                    <ion-list-header>
+                        <ion-label>
+                            Informations personnelles
+                        </ion-label>
+                    </ion-list-header>
+                    <!-- name -->
+                    <ion-item>
+                        <ion-label position="floating">Nom</ion-label>
+                        <ion-input type="text" required formControlName="name"></ion-input>
+                    </ion-item>
+
+                    <!-- prenom -->
+                    <ion-item>
+                        <ion-label position="floating">Prénom</ion-label>
+                        <ion-input type="text" required formControlName="prenom"></ion-input>
+                    </ion-item>
+            
+                    <!-- email -->
+                    <ion-item>
+                        <ion-label position="floating">Adresse email</ion-label>
+                        <ion-input type="email" required formControlName="email"></ion-input>
+                    </ion-item>
+
+                    <ion-list-header>
+                        <ion-label>
+                            Informations de localisation
+                        </ion-label>
+                    </ion-list-header>
+                    <!-- country -->
+                    <ion-item>
+                        <ion-label position="floating">Pays</ion-label>
+                        <ion-input type="text" required formControlName="country"></ion-input>
+                    </ion-item>
+
+                    <!-- town -->
+                    <ion-item>
+                        <ion-label position="floating">Ville</ion-label>
+                        <ion-input type="text" required formControlName="town"></ion-input>
+                    </ion-item>
+
+                    <!-- code -->
+                    <ion-item>
+                        <ion-label position="floating">Code du pays</ion-label>
+                        <ion-input required formControlName="code"></ion-input>
+                    </ion-item>
+
+                    <ion-list-header>
+                        <ion-label>
+                            Votre status
+                        </ion-label>
+                    </ion-list-header>
+                    <!-- status -->
+                    <ion-item>
+                        <div class="status">
+                            <div>
+                                <input id="1" type="radio" formControlName="status" name="status" value="particular">
+                                <label for="1">Particulier</label>
+                            </div>
+                            <div>
+                                <input id="2" type="radio" value="pme" formControlName="status" name="status" class="pme">
+                                <label for="2">PME</label>
+                            </div>
+                            <div>
+                                <input id="3" type="radio" value="entreprise" formControlName="status" name="status">
+                                <label for="3">Entreprise</label>
+                            </div>
+                        </div>
+                    </ion-item>
+                    
+                    <!-- activity -->
+                    <ion-list-header class="select">
+                        <ion-label>
+                            Secteur d'activité
+                        </ion-label>
+                    </ion-list-header>
+                    <ion-item>
+                        <ion-label>Activité</ion-label>
+                        <ion-select value="news" cancelText="Fermer" placeholder="activité" formControlName="activity">
+                            <ion-select-option value="news">Journalisme</ion-select-option>
+                            <ion-select-option value="presse">Presse</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+            
+                <ion-row class="row">
+                    <ion-col>
+                    <ion-button type="submit" expand="block" [disabled]="adForm.invalid">Enregister</ion-button>
+                    </ion-col>
+                </ion-row>
+            </form>
+        </div>
+    </div>
+</ion-content>

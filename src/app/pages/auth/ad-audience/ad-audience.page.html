@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="ad-post"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Audience</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <div class="text">
+            <p>
+                Selectionnez votre audience pour choisir à qui votre annonce sera affichée. <br>
+                Notre outil de selection d'audience vous permet cibler une niche précise.
+            </p>
+
+            <form [formGroup]="audienceForm" (ngSubmit)="onSubmit()">
+                <ion-list>
+                    <ion-list-header>
+                        <ion-label>
+                            Pays
+                        </ion-label>
+                    </ion-list-header>
+                    <ion-item>
+                        <ion-label>Pays actuel</ion-label>
+                        <ion-select value="cm" cancelText="Fermer" placeholder="pays" formControlName="country">
+                            <ion-select-option value="cm">Cameroun</ion-select-option>
+                            <ion-select-option value="us">United Satate</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+
+                <ion-row>
+                    <ion-col>
+                    <ion-button type="submit" [disabled]="audienceForm.invalid" expand="block">Continuer</ion-button>
+                    </ion-col>
+                </ion-row>
+            </form>
+        </div>
+    </div>
+</ion-content>

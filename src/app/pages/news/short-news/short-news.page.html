@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="main-home"></ion-back-button>
+      </ion-buttons>
+    <ion-title>News</ion-title>
+    <ion-buttons slot="end">
+        <ion-button routerLink="/form-short-news">
+          <ion-icon slot="icon-only" class="refresh" color="primary" name="refresh-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let news of newsArray" class="page">
+      <div class="news">
+          <img class="news-img" src="{{ news.image }}" alt="">
+          <div class="news-content">
+            <div class="news-title">
+              <h3>{{ news.title }}</h3>
+            </div>
+            <div class="news-short_text">
+              <p>{{ news.text }}</p>
+            </div>
+          </div>
+          <div class="news-more">
+            <div class="link">
+              <a [routerLink]="[]" >Cliquez pour en savoir plus</a>
+            </div>
+            <div class="opinion">
+              <div class="share">
+                <img src="./assets/share.png" alt="">
+              </div>
+              <div class="bookmark">
+                <img src="./assets/bookmark.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+</ion-content>

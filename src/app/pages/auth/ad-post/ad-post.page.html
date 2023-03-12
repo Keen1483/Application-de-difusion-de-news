@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="ad-signup"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Poster</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+            <ion-list>
+
+                <!-- Image -->
+                <ion-list-header class="select">
+                    <ion-label>
+                        Image
+                    </ion-label>
+                </ion-list-header>
+                <ion-item>
+                    <ion-button>
+                        <ion-icon lazy="true" slot="start" name="image-outline"></ion-icon>
+                        <ion-input type="file" (change)="detectImage($event)" [(ngModel)]="imageUrl" accept="image/png, image/jpg" required formControlName="image"></ion-input>
+                        <!-- <ion-input type="file" (change)="detectFiles($event)" accept="image/png, image/jpg" required formControlName="image"></ion-input> -->
+                    </ion-button>
+                    <!-- <p *ngIf="fileUploaded" style="color: #1a751a;">Fichier chargé !</p> -->
+                </ion-item>
+
+                <!-- Video -->
+                <ion-list-header class="select">
+                    <ion-label>
+                        Vidéo
+                    </ion-label>
+                </ion-list-header>
+                <ion-item>
+                    <ion-button>
+                        <ion-icon lazy="true" slot="start" name="videocam-outline"></ion-icon>
+                        <ion-input type="file" (change)="detectVideo($event)" [(ngModel)]="videoUrl" accept="video/*" required formControlName="video"></ion-input>
+                        <!-- <ion-input type="file" (change)="detectFiles($event)" accept="image/png, image/jpg" required formControlName="image"></ion-input> -->
+                    </ion-button>
+                    <!-- <p *ngIf="fileUploaded" style="color: #1a751a;">Fichier chargé !</p> -->
+                </ion-item>
+
+                <!-- Description -->
+                <ion-item>
+                    <ion-label position="floating">Description</ion-label>
+                    <ion-textarea required formControlName="description"></ion-textarea>
+                </ion-item>
+        
+                <!-- link -->
+                <ion-item>
+                    <ion-label position="floating">Lien</ion-label>
+                    <ion-input type="url" formControlName="link"></ion-input>
+                </ion-item>
+        
+            </ion-list>
+        
+            <ion-row>
+                <ion-col>
+                <ion-button type="submit" [disabled]="postForm.invalid" expand="block">Continuer</ion-button>
+                <!-- <ion-button type="submit" [disabled]="postForm.invalid || fileIsUploading" expand="block" color="success">Enregister !</ion-button> -->
+                </ion-col>
+            </ion-row>
+                
+        </form>
+    </div>
+</ion-content>
